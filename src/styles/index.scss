@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
+
+$black: #24252c;
+$violet: #5f33e1;
+$yellow: #fcbf49;
+$red: #d62828;
+$green: #588157;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Lexend Deca;
+	font-weight: 400;
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+h1 {
+	font-size: 19px;
+	font-weight: 600;
+	line-height: 23.75px;
+}
+
+.page {
+	min-width: 375px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	max-height: 100vh;
+	padding: 28px 22px 35px 22px;
+	position: relative;
+	overflow: hidden;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+	align-items: center;
+	justify-content: flex-start;
+	margin-top: 37px;
+	margin-bottom: 5px;
+	overflow-y: auto;
+	flex-grow: 1;
+}
+
+.todo {
+	position: relative;
+	width: 331px;
+	min-height: 63px;
+	border-radius: 15px;
+	box-shadow: 0 4px 32px 0 #0000000a;
+	background: #fff;
+	padding: 16px 90px 16px 32px;
+
+	&-expanded {
+		min-height: 125px;
+	}
+
+	&__indicator {
+		position: absolute;
+		top: 8px;
+		left: 8px;
+		width: 16px;
+		height: 16px;
+		box-shadow: 0 0 2px 0 #00000040;
+		border-radius: 50%;
+		background: #588157;
+
+		&-red {
+			background: #d62828;
+		}
+
+		&-yellow {
+			background: #fcbf49;
+		}
+	}
+
+	&__title {
+		font-size: 9px;
+		line-height: 11.25px;
+		color: #6e6a7c;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__description {
+		font-size: 14px;
+		line-height: 17.5px;
+		color: $black;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__buttons {
+		position: absolute;
+		top: 19px;
+		right: 17px;
+		display: flex;
+		align-items: center;
+		gap: 16.17px;
+	}
+
+	&__statusButtons {
+		position: absolute;
+		left: 13px;
+		bottom: 19px;
+		right: 13px;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		display: flex;
+	}
+
+	&__statusButton {
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 50px;
+		width: 80px;
+		height: 36px;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+
+		&-yellow {
+			border-color: $yellow;
+		}
+
+		&-yellowActive {
+			background: $yellow;
+		}
+
+		&-green {
+			border-color: $green;
+		}
+
+		&-greenActive {
+			background: $green;
+		}
+
+		&-red {
+			border-color: $red;
+		}
+
+		&-redActive {
+			background: $red;
+		}
+
+		&__text {
+			font-size: 14px;
+			line-height: 18px;
+			color: #24252c;
+
+			&-active {
+				color: #fff;
+			}
+		}
+	}
+}
+
+.button {
+	cursor: pointer;
+
+	&-plus {
+		margin-top: auto;
+		width: 50px;
+		min-height: 50px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $violet;
+	}
+}
+
+.form {
+	width: 331px;
+	border-radius: 15px;
+	padding: 22px 22px 13px 13px;
+	gap: 15px;
+	background: #fff;
+	box-shadow: 0 4px 32px 0 #0000000a;
+	display: flex;
+	flex-direction: column;
+
+	&__inputs {
+		display: flex;
+		gap: 11px;
+		flex-direction: column;
+	}
+
+	&__input {
+		height: 40px;
+		width: 100%;
+		background: #fcfaff;
+		border-radius: 8px;
+		font-size: 16px;
+		line-height: 16px;
+		padding: 12px 16px;
+		border-width: 0;
+		outline: none;
+
+		&-textarea {
+			height: 255px;
+			vertical-align: top;
+			resize: none;
+		}
+
+		&::placeholder {
+			color: #828282;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+	}
+
+	&__button {
+		width: 121px;
+		height: 36px;
+		border-width: 1px;
+		border-color: $violet;
+		border-radius: 50px;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		border-style: solid;
+		cursor: pointer;
+
+		&-violet {
+			background: $violet;
+		}
+	}
+
+	&__buttonText {
+		font-size: 16px;
+		line-height: 20px;
+		color: $violet;
+
+		&-white {
+			color: #fff;
+		}
+	}
+}
+
+.imgOne {
+	position: absolute;
+	top: 33%;
+	right: 0;
+	z-index: -1;
+}
+
+.imgTwo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.imgThree {
+	position: absolute;
+	top: 20%;
+	left: 0;
+	z-index: -1;
+}
+
+.imgFour {
+	position: absolute;
+	top: 52%;
+	left: 0;
+	z-index: -1;
+}
